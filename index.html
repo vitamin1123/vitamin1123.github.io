@@ -322,7 +322,7 @@
 </tbody></table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">set</span> hello world</span><br><span class="line">OK</span><br><span class="line">&gt; get hello</span><br><span class="line"><span class="string">&quot;world&quot;</span></span><br><span class="line">&gt; del hello</span><br><span class="line">(interger) 1</span><br><span class="line">&gt; get hello</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"><a href="#列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素" class="headerlink" title="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"></a>列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素</h4><table>
+<h3 id="列表-list"><a href="#列表-list" class="headerlink" title="列表 list"></a>列表 list</h3><h4 id="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"><a href="#列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素" class="headerlink" title="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"></a>列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素</h4><table>
 <thead>
 <tr>
 <th align="center">命令</th>
@@ -347,6 +347,33 @@
 </tr>
 </tbody></table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush list-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; rpush list-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br><span class="line">&gt; rpush list-key item</span><br><span class="line">(<span class="built_in">integer</span>) 3</span><br><span class="line">&gt; lrange list-key 0 -1</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item2&quot;</span></span><br><span class="line">3) <span class="string">&quot;item&quot;</span></span><br><span class="line">&gt; lindex list-key 1</span><br><span class="line"><span class="string">&quot;item2&quot;</span></span><br><span class="line">&gt; lpop list-key</span><br><span class="line"><span class="string">&quot;item&quot;</span></span><br><span class="line">&gt; lrange list-key 0 -1</span><br><span class="line">1) <span class="string">&quot;item2&quot;</span></span><br><span class="line">2) <span class="string">&quot;item&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="集合-set-无序的"><a href="#集合-set-无序的" class="headerlink" title="集合 set 无序的"></a>集合 set 无序的</h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SADD</td>
+<td align="center">将给定元素添加到集合</td>
+</tr>
+<tr>
+<td align="center">SMEMBERS</td>
+<td align="center">返回集合包含的所有元素</td>
+</tr>
+<tr>
+<td align="center">SISMEMBER</td>
+<td align="center">检查给定元素是否存在于集合中</td>
+</tr>
+<tr>
+<td align="center">SREM</td>
+<td align="center">如果给定的元素存在于集合中，那么移除这个元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item3</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; smembers set-key</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item2&quot;</span></span><br><span class="line">3) <span class="string">&quot;item3&quot;</span></span><br><span class="line">&gt; sismember set-key item4</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; sismember set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; smembers set-key</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item3&quot;</span></span><br></pre></td></tr></table></figure>
+
 
           
         
