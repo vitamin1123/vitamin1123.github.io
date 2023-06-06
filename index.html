@@ -328,42 +328,14 @@
 
       
         
-          
-            <html>
-<style>
-    .mac {
-        width:10px;
-        height:10px;
-        border-radius:5px;
-        float:left;
-        margin:10px 0 0 5px;
-    }
-    .b1 {
-        background:#E0443E;
-        margin-left: 10px;
-    }
-    .b2 { background:#DEA123; }
-    .b3 { background:#1AAB29; }
-    .warpper{
-        background:#121212;
-        border-radius:5px;
-        width:400px;
-    }
-</style>
-<div class="warpper">
-    <div class="mac b1"></div>
-    <div class="mac b2"></div>
-    <div class="mac b3"></div>
-<div>
-<br>
-</html>
-
-<pre><code class="js">const Koa = require(&#39;koa&#39;);
-const app = new Koa();
-
-</code></pre>
-
-          
+          <p>我们需要获取用户真实ip<br>每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket。remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2023/06/06/nodejs%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9Eip/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -502,83 +474,14 @@ const app = new Koa();
 
       
         
-          
-            <h4 id="SET、GET、DEL示例"><a href="#SET、GET、DEL示例" class="headerlink" title="SET、GET、DEL示例"></a>SET、GET、DEL示例</h4><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">GET</td>
-<td align="center">获取存储在给定键中的值</td>
-</tr>
-<tr>
-<td align="center">SET</td>
-<td align="center">设置存储在给定键中的值</td>
-</tr>
-<tr>
-<td align="center">DEL</td>
-<td align="center">删除存储在给定键中的值（适用于所有类型）</td>
-</tr>
-</tbody></table>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">set</span> hello world</span><br><span class="line">OK</span><br><span class="line">&gt; get hello</span><br><span class="line"><span class="string">&quot;world&quot;</span></span><br><span class="line">&gt; del hello</span><br><span class="line">(interger) 1</span><br><span class="line">&gt; get hello</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="列表-list"><a href="#列表-list" class="headerlink" title="列表 list"></a>列表 list</h3><h4 id="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"><a href="#列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素" class="headerlink" title="列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素"></a>列表LPUSH和RPUSH分别从列表左端和右端推入；LPOP和RPOP分别从左右端弹出；LINDEX获取指定位置元素【下标从0】；LRANGE用于获取列表在给定范围上的所有元素</h4><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">RPUSH</td>
-<td align="center">将给定值推入列表的右端</td>
-</tr>
-<tr>
-<td align="center">LRANGE</td>
-<td align="center">获取列表在给定范围上的所有值</td>
-</tr>
-<tr>
-<td align="center">LINDEX</td>
-<td align="center">获取列表在给定位置上的单个元素</td>
-</tr>
-<tr>
-<td align="center">LPOP</td>
-<td align="center">从列表的左端弹出一个值，并返回被弹出的值</td>
-</tr>
-</tbody></table>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush list-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; rpush list-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br><span class="line">&gt; rpush list-key item</span><br><span class="line">(<span class="built_in">integer</span>) 3</span><br><span class="line">&gt; lrange list-key 0 -1</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item2&quot;</span></span><br><span class="line">3) <span class="string">&quot;item&quot;</span></span><br><span class="line">&gt; lindex list-key 1</span><br><span class="line"><span class="string">&quot;item2&quot;</span></span><br><span class="line">&gt; lpop list-key</span><br><span class="line"><span class="string">&quot;item&quot;</span></span><br><span class="line">&gt; lrange list-key 0 -1</span><br><span class="line">1) <span class="string">&quot;item2&quot;</span></span><br><span class="line">2) <span class="string">&quot;item&quot;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="集合-set-无序的"><a href="#集合-set-无序的" class="headerlink" title="集合 set 无序的"></a>集合 set 无序的</h3><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SADD</td>
-<td align="center">将给定元素添加到集合</td>
-</tr>
-<tr>
-<td align="center">SMEMBERS</td>
-<td align="center">返回集合包含的所有元素</td>
-</tr>
-<tr>
-<td align="center">SISMEMBER</td>
-<td align="center">检查给定元素是否存在于集合中</td>
-</tr>
-<tr>
-<td align="center">SREM</td>
-<td align="center">如果给定的元素存在于集合中，那么移除这个元素</td>
-</tr>
-</tbody></table>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item3</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; sadd set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; smembers set-key</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item2&quot;</span></span><br><span class="line">3) <span class="string">&quot;item3&quot;</span></span><br><span class="line">&gt; sismember set-key item4</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; sismember set-key item</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">&gt; smembers set-key</span><br><span class="line">1) <span class="string">&quot;item&quot;</span></span><br><span class="line">2) <span class="string">&quot;item3&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-          
+          <p>redis基础</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2023/06/05/redis-0-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
