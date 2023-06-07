@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="我们需要获取用户真实ip每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket。remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip">
+<meta name="description" content="我们需要获取用户真实ip每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket.remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs获取用户真实ip">
 <meta property="og:url" content="http://example.com/2023/06/06/nodejs%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9Eip/index.html">
 <meta property="og:site_name" content="xyy">
-<meta property="og:description" content="我们需要获取用户真实ip每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket。remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip">
+<meta property="og:description" content="我们需要获取用户真实ip每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket.remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-06T00:06:55.000Z">
-<meta property="article:modified_time" content="2023-06-06T01:23:37.621Z">
+<meta property="article:modified_time" content="2023-06-06T09:56:42.786Z">
 <meta property="article:author" content="xyy">
 <meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
@@ -329,8 +329,9 @@
       
 
       
-        <p>我们需要获取用户真实ip<br>每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket。remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip</p>
+        <p>我们需要获取用户真实ip<br>每个tcp连接都有remoteAddress属性，通过它可以获取请求的ip，在http中，可以通过request.socket.remoteAddress获得，然鹅，这样通常获取的是代理服务器的ip</p>
 <span id="more"></span>
+<p>以koa为例，通过x-forward-for获取ip是有问题的，因为实际环境中往往不是客户端-&gt;nginx-&gt;koa，可能还有其他代理，比如 CDN，负载均衡，或许还有用户自己用的代理服务，而且并非每个节点都遵从x-forward-for头部的用法，这个参数同时可以手动修改、复写；koa的ctx.req是</p>
 <html>
 <style>
     .mac {
@@ -360,8 +361,9 @@
 <br>
 </html>
 
-<pre><code class="js">const Koa = require(&#39;koa&#39;);
-const app = new Koa();
+<pre><code class="js">var ip3 = ctx.req.socket.remoteAddress.replace(&#39;::ffff:&#39;,&#39;&#39;)
+
+这种情况下会获得nginx的地址
 
 </code></pre>
 
